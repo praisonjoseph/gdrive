@@ -6,7 +6,8 @@ import Dashboard from "./Dashboard"
 function App() {
   return (
         <Router>
-              <Route exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/folder/:folderId" component={Dashboard} />
         </Router>
   )
 }
