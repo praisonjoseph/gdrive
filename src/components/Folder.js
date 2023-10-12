@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 export default function Folder({ folder }) {
+  // console.log(folder)
   return (
     <Button
       to=
@@ -16,6 +17,7 @@ export default function Folder({ folder }) {
       className='text-truncate w-100'
       as={Link}
     >
+      
       <FontAwesomeIcon icon={faFolder} className='mr-2' />
       {folder.name}
     </Button>
