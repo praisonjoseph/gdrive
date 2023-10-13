@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap"
 import NavbarComponent from './Navbar';
 import AddFolderButton from "./AddFolderButton";
 import AddFileButton from "./AddFileButton";
-import { useFolder } from "../hooks/useFolder";
+import { useFolder } from "../../hooks/useFolder";
 import Folder from "./Folder";
 import File from "./File";
 import { useParams } from "react-router-dom";

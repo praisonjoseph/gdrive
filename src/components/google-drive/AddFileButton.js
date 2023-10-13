@@ -1,11 +1,10 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFileUpload} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
-import { database, storage } from '../firebase';
-import { ref, uploadBytes, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { database, storage } from '../../firebase';
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, serverTimestamp } from "firebase/firestore";
-import { ROOT_FOLDER } from '../hooks/useFolder';
+import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 export default function AddFileButton({currentFolder}) {
     const handleUpload = (e) => {
@@ -40,9 +39,9 @@ export default function AddFileButton({currentFolder}) {
         () => {
           // Handle successful uploads on complete
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             console.log('File available at', downloadURL);
-            const docRef = addDoc(database.files, {
+            await addDoc(database.files, {
               name: storageRef.name,
               parentId: currentFolder.id,
               url: downloadURL,
@@ -60,7 +59,7 @@ export default function AddFileButton({currentFolder}) {
         type="file" 
         
         onChange={handleUpload} 
-        style={{opacity: 0, position: 'absolute', left: "-99999"}} 
+        style={{opacity: 0, position: 'absolute', left: "-9999px"}} 
         />
     </label>
   )

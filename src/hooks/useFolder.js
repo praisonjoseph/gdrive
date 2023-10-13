@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { database, db } from "../firebase";
-import { collection, query, where, onSnapshot, orderBy, doc, getDoc } from "firebase/firestore";
+import { database } from "../firebase";
+import { query, where, onSnapshot, orderBy, doc, getDoc } from "firebase/firestore";
 
 const ACTIONS = {
     SELECT_FOLDER: 'select_folder',

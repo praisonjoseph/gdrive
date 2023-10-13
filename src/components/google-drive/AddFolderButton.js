@@ -3,9 +3,9 @@ import { Button, Form, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFolderPlus} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
-import { database, db } from '../firebase';
-import { collection, addDoc, serverTimestamp } from "firebase/firestore"; 
-import { ROOT_FOLDER } from './../hooks/useFolder';
+import { database } from '../../firebase';
+import { addDoc, serverTimestamp } from "firebase/firestore"; 
+import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 export default function AddFolderButton({currentFolder}) {
     const [open, setOpen] = useState(false)
@@ -15,7 +15,7 @@ export default function AddFolderButton({currentFolder}) {
     }
     const closeModal = () => {
         setOpen(false)
-        setName("")
+        
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -27,7 +27,7 @@ export default function AddFolderButton({currentFolder}) {
         if (JSON.stringify(currentFolder) !== JSON.stringify(ROOT_FOLDER)) {
             path.push({name: currentFolder.name, id: currentFolder.id})
         }
-        const docRef = await addDoc(database.folders, {
+        await addDoc(database.folders, {
             name: name,
             parentId: currentFolder.id,
             path: path,

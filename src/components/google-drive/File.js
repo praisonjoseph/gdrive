@@ -1,8 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile } from '@fortawesome/free-solid-svg-icons'
-import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
 export default function File({ file }) {
   // console.log(folder)
